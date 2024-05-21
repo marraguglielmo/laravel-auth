@@ -12,7 +12,7 @@
 
 <body>
 
-    {{-- @include('') --}}
+    @include('guest.partials.header')
 
     @yield('content')
 

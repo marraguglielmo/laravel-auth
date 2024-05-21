@@ -11,9 +11,6 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#"></a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="">Login</a>
-                    </li>
                 </ul>
                 <ul class="navbar-nav">
                     <li class="nav-item">
