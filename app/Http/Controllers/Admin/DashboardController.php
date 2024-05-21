@@ -9,6 +9,6 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        dump('INDEX ADMIN');
+        return view('admin.home');
     }
 }
