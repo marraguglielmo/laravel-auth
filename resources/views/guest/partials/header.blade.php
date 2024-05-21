@@ -1,7 +1,7 @@
-<header>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid">
-            <div class="collapse navbar-collapse d-flex justify-content-end ">
+<header class="border border-danger border-1">
+    <nav class="h-100">
+        <div class="container-fluid h-100 d-flex justify-content-end align-items-center">
+            <div>
                 <ul class="navbar-nav">
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('login') }}">Login</a>

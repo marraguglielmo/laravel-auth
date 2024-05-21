@@ -1,19 +1,19 @@
-<header>
+<header class="border border-danger border-1">
 
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid">
+    <nav class="h-100">
+        <div class="container-fluid h-100 d-flex align-items-center">
             <div class="collapse navbar-collapse d-flex justify-content-between ">
-                <ul class="navbar-nav">
+                <ul class="navbar-nav d-flex flex-row">
                     <li class="nav-item">
                         <a class="nav-link" target="_blank" href="{{ route('home') }}">Vedi il
                             sito</a>
                     </li>
-                    <li class="nav-item">
+                    {{-- <li class="nav-item">
                         <a class="nav-link" href="#"></a>
-                    </li>
+                    </li> --}}
                 </ul>
-                <ul class="navbar-nav">
-                    <li class="nav-item">
+                <ul class="navbar-nav d-flex flex-row justify-content-around">
+                    <li class="nav-item mx-2">
                         <span href="" class="nav-link">{{ Auth::user()->name }}</span>
                     </li>
                     <li class="nav-item">
