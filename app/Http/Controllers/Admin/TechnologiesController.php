@@ -77,6 +77,16 @@ class TechnologiesController extends Controller
                 'title.max' => 'Il linguaggio non  deve avere più di :max caratteri',
             ]
         );
+        $exists = Technology::where('title', $request->title)->first();
+        if ($exists) {
+            return redirect()->route('admin.technologies.index')->with('error', 'Language exist');
+            // dd($exists);
+        } else {
+            $data['slug'] = Help::generateSlug($request->title, Technology::class);
+            $item->update($data);
+
+            return redirect()->route('admin.technologies.index')->with('success', 'Linguaggio modificato');
+        }
     }
 
     /**
