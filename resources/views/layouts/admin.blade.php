@@ -19,7 +19,19 @@
 
     @include('admin.partials.header')
 
-    @yield('content')
+
+    <section class="admin-dashboard d-flex">
+        <aside class="border border-warning border-1">
+            <h1>Admin dashboard</h1>
+            <h3 class="text-warning">Dashboard aside</h3>
+        </aside>
+
+        <div class="main-dash overflow-y-scroll border border-1">
+            @yield('content')
+        </div>
+    </section>
+
+
 
 </body>
 
