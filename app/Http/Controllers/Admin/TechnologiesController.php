@@ -64,9 +64,19 @@ class TechnologiesController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Technology $item)
     {
-        //
+
+        $data = $request->validate(
+            [
+                'title' => 'required|min:2|max:50'
+            ],
+            [
+                'title.required' => 'Devi inserire il nome del linguaggio',
+                'title.min' => 'Il linguaggio deve avere almeno :min caratteri',
+                'title.max' => 'Il linguaggio non  deve avere più di :max caratteri',
+            ]
+        );
     }
 
     /**

@@ -8,6 +8,15 @@
 
         <div class="container">
 
+            @if ($errors->any())
+                <div class="alert alert-danger" role="alert">
+                    @foreach ($errors->all() as $error)
+                        {{ $error }}
+                    @endforeach
+                </div>
+            @endif
+
+
             @if (session('error'))
                 <div class="alert alert-danger" role="alert">
                     {{ session('error') }}
@@ -36,18 +45,29 @@
             <tbody class="table-group-divider">
                 @foreach ($technologies as $item)
                     <tr>
-                        <td>
-                            <input type="text" value="{{ $item->title }}">
-                        </td>
                         <td class="d-flex">
-                            <button class="btn btn-warning me-2"><i class="fa-solid fa-pencil"></i></button>
-                            <form action="">
-                                <button class="btn btn-danger"><i class="fa-solid fa-trash-can"></i></button>
+                            <form action="{{ route('admin.technologies.update', $item) }}" method="POST"
+                                id="form-edit-{{ $item->id }}">
+                                @csrf
+                                @method('PUT')
+                                <input type="text" value="{{ $item->title }}" name="title">
                             </form>
+                        </td>
+                        <td>
+                            <button type="button" onclick="submitForm({{ $item->id }})" class="btn btn-warning me-2"><i
+                                    class="fa-solid fa-pencil"></i></button>
+                            <button class="btn btn-danger"><i class="fa-solid fa-trash-can"></i></button>
                         </td>
                     </tr>
                 @endforeach
             </tbody>
         </table>
     </div>
+
+    <script>
+        function submitForm(id) {
+            const form = document.getElementbyId(`form-edit-${id}`);
+            form.submit();
+        }
+    </script>
 @endsection
