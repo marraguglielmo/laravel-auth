@@ -4,11 +4,32 @@ header{
 
 .admin-dashboard{
     aside{
-    width: 300px;
-    height: calc(100vh - 65px);
+        background-color: black;
+        width: 250px;
+        height: calc(100vh - 65px);
+    ul{
+        padding: 0;
+        list-style: none;
+        li{
+            padding: 15px 10px;
+            &:hover{
+                background-color: grey;
+                transition: background-color .3s;
+            }
+            i{
+                font-size: 1.3rem;
+                margin-right: 8px;
+                vertical-align: middle;
+            }
+            a{
+                color: white;
+                text-decoration: none;
+            }
+        }
+    }
     }
     .main-dash{
-        width: calc(100vw - 300px);
+        width: calc(100vw - 250px);
         height: calc(100vh - 65px);
         padding: 15px 20px;
     }

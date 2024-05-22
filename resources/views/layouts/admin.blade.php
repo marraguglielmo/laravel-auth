@@ -22,8 +22,17 @@
 
     <section class="admin-dashboard d-flex">
         <aside class="border border-warning border-1">
-            <h1>Admin dashboard</h1>
-            <h3 class="text-warning">Dashboard aside</h3>
+            <ul>
+                <li>
+                    <a href=""><i class="fa-solid fa-diagram-project"></i>Projects</a>
+                </li>
+                <li>
+                    <a href=""><i class="fa-solid fa-microchip"></i>Technologies</a>
+                </li>
+                <li>
+                    <a href=""><i class="fa-solid fa-hurricane"></i>Types</a>
+                </li>
+            </ul>
         </aside>
 
         <div class="main-dash overflow-y-scroll border border-1">
