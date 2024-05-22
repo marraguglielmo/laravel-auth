@@ -1,4 +1,4 @@
-<header class="border border-danger border-1">
+<header>
 
     <nav class="h-100">
         <div class="container-fluid h-100 d-flex align-items-center">
@@ -8,9 +8,6 @@
                         <a class="nav-link" target="_blank" href="{{ route('home') }}">Vedi il
                             sito</a>
                     </li>
-                    {{-- <li class="nav-item">
-                        <a class="nav-link" href="#"></a>
-                    </li> --}}
                 </ul>
                 <ul class="navbar-nav d-flex flex-row justify-content-around">
                     <li class="nav-item mx-2">

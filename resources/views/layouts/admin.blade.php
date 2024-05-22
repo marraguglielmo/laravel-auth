@@ -21,16 +21,18 @@
 
 
     <section class="admin-dashboard d-flex">
-        <aside class="border border-warning border-1">
+        <aside>
             <ul>
                 <li>
-                    <a href=""><i class="fa-solid fa-diagram-project"></i>Projects</a>
+                    <a href="{{ route('admin.projects.index') }}"><i
+                            class="fa-solid fa-diagram-project"></i>Projects</a>
                 </li>
                 <li>
-                    <a href=""><i class="fa-solid fa-microchip"></i>Technologies</a>
+                    <a href="{{ route('admin.technologies.index') }}"><i
+                            class="fa-solid fa-microchip"></i>Technologies</a>
                 </li>
                 <li>
-                    <a href=""><i class="fa-solid fa-hurricane"></i>Types</a>
+                    <a href="{{ route('admin.types.index') }}"><i class="fa-solid fa-hurricane"></i>Types</a>
                 </li>
             </ul>
         </aside>

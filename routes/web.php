@@ -30,9 +30,9 @@ Route::middleware(['auth', 'verified'])
     ->name('admin.')
     ->group(function () {
         Route::get('/', [DashboardController::class, 'index'])->name('home');
-        Route::resource('projects', [ProjectsController::class]);
-        Route::resource('technologies', [TechnologiesController::class]);
-        Route::resource('types', [TypesController::class]);
+        Route::resource('projects', ProjectsController::class);
+        Route::resource('technologies', TechnologiesController::class);
+        Route::resource('types', TypesController::class);
     });
 
 // Rotte Auth
