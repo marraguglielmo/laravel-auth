@@ -69,7 +69,7 @@ class TechnologiesController extends Controller
 
         $data = $request->validate(
             [
-                'title' => 'required|min:2|max:50'
+                'title' => 'required|min:2|max:15'
             ],
             [
                 'title.required' => 'Devi inserire il nome del linguaggio',
