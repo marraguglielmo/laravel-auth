@@ -72,8 +72,8 @@ class TypesController extends Controller
             ],
             [
                 'title.required' => 'Devi inserire il nome del linguaggio',
-                'title.min' => 'Il linguaggio deve avere almeno :min caratteri',
-                'title.max' => 'Il linguaggio non  deve avere più di :max caratteri',
+                'title.min' => 'Il tipo deve avere almeno :min caratteri',
+                'title.max' => 'Il tipo non  deve avere più di :max caratteri',
             ]
         );
         $exists = Type::where('title', $request->title)->first();

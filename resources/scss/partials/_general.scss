@@ -12,6 +12,8 @@ header{
 .admin-dashboard{
     aside{
         background-color: #001A23;
+        display: flex;
+        justify-content: center;
         width: 90px;
         min-width: 90px;
         height: calc(100vh - 65px);

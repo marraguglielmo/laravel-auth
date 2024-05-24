@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
-    <div class="container ms-0">
+    <div class="container m-0">
         <h3 class="my-5">Technologies</h3>
 
 
