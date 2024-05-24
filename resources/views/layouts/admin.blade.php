@@ -20,28 +20,28 @@
     @include('admin.partials.header')
 
 
-    <section class="admin-dashboard d-flex">
+    <section class="admin-dashboard d-flex justify-content-between ">
         <aside>
             <ul>
                 <li>
                     <a href="{{ route('admin.projects.index') }}"><i
-                            class="fa-solid fa-diagram-project"></i>Projects</a>
+                            class="fa-solid fa-diagram-project"></i><span>Projects</span></a>
                 </li>
                 <li>
                     <a href="{{ route('admin.technologies.index') }}"><i
-                            class="fa-solid fa-microchip"></i>Technologies</a>
+                            class="fa-solid fa-microchip"></i><span>technologies</span></a>
                 </li>
                 <li>
-                    <a href="{{ route('admin.types.index') }}"><i class="fa-solid fa-hurricane"></i>Types</a>
+                    <a href="{{ route('admin.types.index') }}"><i
+                            class="fa-solid fa-hurricane"></i><span>Types</span></a>
                 </li>
             </ul>
         </aside>
 
-        <div class="main-dash overflow-y-scroll border border-1">
+        <div class="main-dash overflow-y-scroll">
             @yield('content')
         </div>
     </section>
-
 
 
 </body>

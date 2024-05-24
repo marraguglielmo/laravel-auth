@@ -41,7 +41,7 @@ class TechnologiesController extends Controller
             $new_technology->title = $request->title;
             $new_technology->slug = Help::generateSlug($new_technology->title, Technology::class);
             $new_technology->save();
-            return redirect()->route('admin.technologies.index')->with('success', 'Il linguaggio stato inserito');
+            return redirect()->route('admin.technologies.index')->with('success', 'Il linguaggio è stato inserito correttamente');
         }
     }
 
@@ -64,7 +64,7 @@ class TechnologiesController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Technology $item)
+    public function update(Request $request, Technology $technology)
     {
 
         $data = $request->validate(
@@ -79,11 +79,11 @@ class TechnologiesController extends Controller
         );
         $exists = Technology::where('title', $request->title)->first();
         if ($exists) {
-            return redirect()->route('admin.technologies.index')->with('error', 'Language exist');
+            return redirect()->route('admin.technologies.index')->with('error', 'Nessuna modifica effettuata');
             // dd($exists);
         } else {
             $data['slug'] = Help::generateSlug($request->title, Technology::class);
-            $item->update($data);
+            $technology->update($data);
 
             return redirect()->route('admin.technologies.index')->with('success', 'Linguaggio modificato');
         }
@@ -92,8 +92,9 @@ class TechnologiesController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Technology $technology)
     {
-        //
+        $technology->delete();
+        return redirect()->route('admin.technologies.index');
     }
 }

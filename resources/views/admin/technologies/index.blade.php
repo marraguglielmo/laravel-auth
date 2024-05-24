@@ -1,12 +1,12 @@
 @extends('layouts.admin')
 
 @section('content')
-    <h3>Technologies</h3>
-    <div class="container">
+    <div class="container ms-0">
+        <h3 class="my-5">Technologies</h3>
 
 
 
-        <div class="container">
+        <div class="container p-1">
 
             @if ($errors->any())
                 <div class="alert alert-danger" role="alert">
@@ -27,10 +27,12 @@
                 </div>
             @endif
 
+            {{-- create --}}
             <form action="{{ route('admin.technologies.store') }}" method="POST" class="d-flex w-50">
                 @csrf
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="title">
-                <button class="btn btn-outline-success" type="submit">Search</button>
+                <input class="form-control me-2" type="search" placeholder="Aggiungi linguaggio" aria-label="Search"
+                    name="title">
+                <button class="btn btn-outline-success" type="submit">Aggiungi</button>
             </form>
         </div>
 
@@ -43,20 +45,27 @@
                 </tr>
             </thead>
             <tbody class="table-group-divider">
-                @foreach ($technologies as $item)
+                @foreach ($technologies as $technology)
                     <tr>
-                        <td class="d-flex">
-                            <form action="{{ route('admin.technologies.update', $item) }}" method="POST"
-                                id="form-edit-{{ $item->id }}">
+                        <td>
+                            {{-- update --}}
+                            <form action="{{ route('admin.technologies.update', $technology) }}" method="POST"
+                                id="form-edit-{{ $technology->id }}">
                                 @csrf
                                 @method('PUT')
-                                <input type="text" value="{{ $item->title }}" name="title">
+                                <input type="text" value="{{ $technology->title }}" name="title">
                             </form>
                         </td>
-                        <td>
-                            <button type="button" onclick="submitForm({{ $item->id }})" class="btn btn-warning me-2"><i
-                                    class="fa-solid fa-pencil"></i></button>
-                            <button class="btn btn-danger"><i class="fa-solid fa-trash-can"></i></button>
+                        <td class="d-flex">
+                            <button type="button" onclick="submitForm({{ $technology->id }})"
+                                class="btn btn-warning me-2"><i class="fa-solid fa-pencil"></i></button>
+
+                            {{-- delete --}}
+                            <form action="{{ route('admin.technologies.destroy', $technology) }}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button class="btn btn-danger"><i class="fa-solid fa-trash-can"></i></button>
+                            </form>
                         </td>
                     </tr>
                 @endforeach
@@ -66,7 +75,7 @@
 
     <script>
         function submitForm(id) {
-            const form = document.getElementbyId(`form-edit-${id}`);
+            const form = document.getElementById(`form-edit-${id}`);
             form.submit();
         }
     </script>

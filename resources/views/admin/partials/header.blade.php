@@ -1,4 +1,4 @@
-<header>
+<header class="text-white">
 
     <nav class="h-100">
         <div class="container-fluid h-100 d-flex align-items-center">

@@ -1,4 +1,4 @@
-<header class="border border-danger border-1">
+<header class="border border-danger border-1 text-white">
     <nav class="h-100">
         <div class="container-fluid h-100 d-flex justify-content-end align-items-center">
             <div>
