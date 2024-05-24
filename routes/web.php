@@ -31,8 +31,8 @@ Route::middleware(['auth', 'verified'])
     ->group(function () {
         Route::get('/', [DashboardController::class, 'index'])->name('home');
         Route::resource('projects', ProjectsController::class);
-        Route::resource('technologies', TechnologiesController::class);
-        Route::resource('types', TypesController::class);
+        Route::resource('technologies', TechnologiesController::class)->except(['create', 'show', 'edit']);
+        Route::resource('types', TypesController::class)->except(['create', 'show', 'edit']);
     });
 
 // Rotte Auth

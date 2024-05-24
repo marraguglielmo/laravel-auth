@@ -31,7 +31,7 @@ header{
                 i{
                     font-size: 1.3rem;
                     margin-right: 8px;
-                    vertical-align: middle;
+                    padding: 5px;
                 }
                 a{
                     display: block;
@@ -39,8 +39,8 @@ header{
                     text-decoration: none;
                     padding: 20px 30px;
                     span{
-                    display: none;
-                    white-space: nowrap;
+                        display: none;
+                        white-space: nowrap;
                     }
                 }
             }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Type;
+use App\Functions\Helper as Help;
 
 
 class TypesController extends Controller
@@ -14,7 +15,8 @@ class TypesController extends Controller
      */
     public function index()
     {
-        //
+        $types = Type::all();
+        return view('admin.types.index', compact('types'));
     }
 
     /**
@@ -30,7 +32,17 @@ class TypesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $exist = Type::where('title', $request->title)->first();
+
+        if ($exist) {
+            return redirect()->route('admin.technologies.index')->with('error', 'Il linguaggio è già stato inserito');
+        } else {
+            $new_type = new type();
+            $new_type->title = $request->title;
+            $new_type->slug = Help::generateSlug($new_type->title, type::class);
+            $new_type->save();
+            return redirect()->route('admin.types.index')->with('success', 'Il linguaggio è stato inserito correttamente');
+        }
     }
 
     /**
@@ -52,16 +64,36 @@ class TypesController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Type $type)
     {
-        //
+        $data = $request->validate(
+            [
+                'title' => 'required|min:2|max:30'
+            ],
+            [
+                'title.required' => 'Devi inserire il nome del linguaggio',
+                'title.min' => 'Il linguaggio deve avere almeno :min caratteri',
+                'title.max' => 'Il linguaggio non  deve avere più di :max caratteri',
+            ]
+        );
+        $exists = Type::where('title', $request->title)->first();
+        if ($exists) {
+            return redirect()->route('admin.types.index')->with('error', 'Nessuna modifica effettuata');
+            // dd($exists);
+        } else {
+            $data['slug'] = Help::generateSlug($request->title, type::class);
+            $type->update($data);
+
+            return redirect()->route('admin.types.index')->with('success', 'Linguaggio modificato');
+        }
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Type $type)
     {
-        //
+        $type->delete();
+        return redirect()->route('admin.types.index')->with('success', 'Il tipo è stato eliminato correttamente');
     }
 }

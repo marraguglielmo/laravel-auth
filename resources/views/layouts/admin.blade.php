@@ -24,12 +24,15 @@
         <aside>
             <ul>
                 <li>
+                    <a href="{{ route('admin.home') }}"><i class="fa-solid fa-house"></i><span>Home</span></a>
+                </li>
+                <li>
                     <a href="{{ route('admin.projects.index') }}"><i
                             class="fa-solid fa-diagram-project"></i><span>Projects</span></a>
                 </li>
                 <li>
                     <a href="{{ route('admin.technologies.index') }}"><i
-                            class="fa-solid fa-microchip"></i><span>technologies</span></a>
+                            class="fa-solid fa-microchip"></i><span>Technologies</span></a>
                 </li>
                 <li>
                     <a href="{{ route('admin.types.index') }}"><i
